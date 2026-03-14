@@ -18,10 +18,12 @@
         </header>
 
         <section class="lyrics-window">
-            <div class="lyrics-content">
-                <p>Bir yanım kaktüs, bir yanım bahar...</p>
-                <p>Yine de dikeni batar, ruhumu sarar.</p>
-                </div>
+            <div id="lyrics-content" class="lyrics-content">
+                <p id="line1">Bana boş laf anlatma...</p>
+                <p id="line2">Kalbin taşa dönmüş senin.</p>
+                <p id="line3">Bir gülün yok kaktüssün,</p>
+                <p id="line4">Ruhum boyun eğmez sana.</p>
+            </div>
         </section>
 
         <footer class="controls">
@@ -30,10 +32,11 @@
         </footer>
     </main>
 
-    <script src="script.js"></script>
-  <script>
+    <script src="script.js">
+    <script>
     const music = document.getElementById('music');
 const playBtn = document.getElementById('playBtn');
+const lyricsContent = document.getElementById('lyrics-content');
 
 function togglePlay() {
     if (music.paused) {
@@ -47,8 +50,19 @@ function togglePlay() {
     }
 }
 
-// Zamanla sözlerin kayması için basit bir mekanizma eklenebilir
-// Şarkıdaki saniyelere göre .lyrics-content transform: translateY() yapılabilir.
-      <script>
+// Sözlerin şarkıyla senkronize kayması için küçük bir hesap
+music.ontimeupdate = function() {
+    let currentTime = music.currentTime;
+    
+    // Her 5 saniyede bir sözleri yukarı kaydır (Örnek bir zamanlama)
+    if (currentTime > 5 && currentTime < 10) {
+        lyricsContent.style.transform = "translateY(-40px)";
+    } else if (currentTime > 10) {
+        lyricsContent.style.transform = "translateY(-80px)";
+    } else {
+        lyricsContent.style.transform = "translateY(0)";
+    }
+};
+        </script>
 </body>
 </html>
