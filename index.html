@@ -33,36 +33,6 @@
     </main>
 
     <script src="script.js">
-    <script>
-    const music = document.getElementById('music');
-const playBtn = document.getElementById('playBtn');
-const lyricsContent = document.getElementById('lyrics-content');
-
-function togglePlay() {
-    if (music.paused) {
-        music.play();
-        playBtn.innerText = "DURAKLAT";
-        playBtn.style.opacity = "0.5";
-    } else {
-        music.pause();
-        playBtn.innerText = "DEVAM ET";
-        playBtn.style.opacity = "1";
-    }
-}
-
-// Sözlerin şarkıyla senkronize kayması için küçük bir hesap
-music.ontimeupdate = function() {
-    let currentTime = music.currentTime;
-    
-    // Her 5 saniyede bir sözleri yukarı kaydır (Örnek bir zamanlama)
-    if (currentTime > 5 && currentTime < 10) {
-        lyricsContent.style.transform = "translateY(-40px)";
-    } else if (currentTime > 10) {
-        lyricsContent.style.transform = "translateY(-80px)";
-    } else {
-        lyricsContent.style.transform = "translateY(0)";
-    }
-};
-        </script>
+ 
 </body>
 </html>
