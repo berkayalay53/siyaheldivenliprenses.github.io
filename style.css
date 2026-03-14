@@ -44,26 +44,6 @@ body, html {
     letter-spacing: 15px;
     margin: 0;
 }
-
-.lyrics-window {
-    height: 120px;
-    margin: 30px 0;
-    overflow: hidden;
-}
-
-.lyrics-content p {
-    font-size: 1.3rem;
-    line-height: 2.5;
-    transition: all 0.8s ease;
-}
-/* style.css içine ekle veya güncelle */
-.lyrics-window {
-    height: 60px; /* Sadece tek satır odaklı olması için daralttık */
-    margin: 30px 0;
-    overflow: hidden;
-    mask-image: linear-gradient(transparent, black 20%, black 80%, transparent);
-    -webkit-mask-image: linear-gradient(transparent, black 20%, black 80%, transparent);
-}
 button {
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid #fff;
@@ -78,3 +58,26 @@ button:hover {
     background: #fff;
     color: #000;
 }
+
+}
+/* style.css */
+.lyrics-window {
+    height: 60px; /* Pencereyi daraltarak sadece tek satırın görünmesini sağlarız */
+    margin: 30px 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lyrics-content {
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Daha yumuşak geçiş */
+}
+
+.lyrics-content p {
+    height: 60px; /* Her satırın yüksekliğini sabitleyelim */
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
