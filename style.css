@@ -3,14 +3,19 @@
   -webkit-tap-highlight-color: transparent;
 }
 /* BAŞLANGIÇTA GİZLE, YÜKLENİNCE GÖSTER */
+html, body {
+  overflow: hidden;
+  height: 100%;
+}
+
 body {
-  opacity: 0; /* Başta görünmez */
-  transition: opacity 0.8s ease-in-out; /* 0.8 saniyede yavaşça belirir */
-  background-color: #0f1113; /* Yüklenirken arkada siyah fon dursun */
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+  background-color: #0f1113;
 }
 
 body.loaded {
-  opacity: 1 !important; /* Yüklendiğinde görünür olsun */
+  opacity: 1 !important;
 }
 /* === GENEL AYARLAR === */
 :root {
