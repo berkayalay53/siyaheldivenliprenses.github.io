@@ -13,6 +13,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="./style.css">
+  <link rel="preload" href="./style.css" as="style">
+  <link rel="preload" href="./cover.jpg" as="image">
+  <link rel="preload" href="./kralkaybederse.jpg" as="image">
 </head>
 <body>
 
@@ -155,6 +158,25 @@
     window.addEventListener('load', () => {
       document.body.classList.add('loaded');
     });
+    // === SAYFA YÜKLENME VE PERDE YÖNETİCİSİ ===
+
+// 1. Geri butonuyla (tarayıcı önbelleğinden) gelindiğinde kilitlenmeyi önler
+window.addEventListener("pageshow", function(event) {
+  if (event.persisted) {
+    document.body.classList.add('loaded');
+    document.body.style.opacity = "1";
+  }
+});
+
+// 2. Kapak görseli ve tüm kaynaklar hazır olduğunda perdeyi açar
+window.addEventListener('load', () => {
+  document.body.classList.add('loaded');
+});
+
+// 3. Güvenlik Sübabı: Bağlantı yavaşsa kullanıcı karanlıkta kalmasın
+setTimeout(() => {
+  document.body.classList.add('loaded');
+}, 2500);
   </script>
 </body>
 </html>
